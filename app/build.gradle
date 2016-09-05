@@ -27,8 +27,32 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':moduleone')
     compile project(':moduletwo')
-//    compile 'com.github.danielsanfr:jitpack-test:0.0.1@aar'
-//    compile 'com.github.danielsanfr.jitpack-test:moduleone:0.0.1'
-//    compile 'com.github.danielsanfr.jitpack-test:moduletwo:0.0.1'
+//    compile 'com.github.danielsanfr:jitpack-test:0.0.3'
+//    compile 'com.github.danielsanfr.jitpack-test:moduleone:0.0.3'
+//    compile 'com.github.danielsanfr.jitpack-test:moduletwo:0.0.3'
     compile 'com.android.support:appcompat-v7:24.1.1'
+}
+
+// build a jar with source files
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    failOnError  false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
