@@ -28,9 +28,9 @@ dependencies {
     compile project(':all')
     compile project(':moduleone')
     compile project(':moduletwo')
-//    compile 'com.github.danielsanfr.jitpack-test:all:0.0.5'
-//    compile 'com.github.danielsanfr.jitpack-test:moduleone:0.0.5'
-//    compile 'com.github.danielsanfr.jitpack-test:moduletwo:0.0.5'
+//    compile 'com.github.danielsanfr.jitpack-test:all:0.0.6'
+//    compile 'com.github.danielsanfr.jitpack-test:moduleone:0.0.6'
+//    compile 'com.github.danielsanfr.jitpack-test:moduletwo:0.0.6'
     compile 'com.android.support:appcompat-v7:24.1.1'
 }
 
